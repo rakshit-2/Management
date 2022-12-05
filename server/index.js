@@ -35,7 +35,30 @@ app.get("/",(req,res)=>{
 });
 
 
-// event all api
+
+
+
+
+// login check api
+app.get('/login-get',(req,res)=>{
+    var email=req.query.email;
+    var pass=req.query.pass;
+    const ele="select * from manage_profile where email=? and pass=?;";
+    db.query(ele,[email,pass],(err,result)=>{
+        if(result.length===0)
+        {
+            res.send(false)
+        }
+        else
+        {
+            res.send(true)
+        }
+    })
+})
+
+
+
+
 
 
 const port=process.env.PORT || 5000;
