@@ -1,24 +1,23 @@
-import DashboardMain from './../../organisms/dashboard';
-import Nav from './../../organisms/nav'
 import * as React from 'react';
+import ProfileMain from './../../organisms/profile';
+import Nav from './../../organisms/nav'
 
 
-const Dashboard = (props) => {
+
+const Profile = (props) => {
     return(
-        <>
         <div className='template__outer'>
             <div className='template__inner'>
                 <div className='template__inner__nav'>
                     <Nav/>
                 </div>
                 <div className='template__inner__main'>
-                    <DashboardMain/>
+                    <ProfileMain/>
                 </div>
             </div>
         </div>
-        </>
     )
 }
 
 
-export default Dashboard;
+export default Profile;
