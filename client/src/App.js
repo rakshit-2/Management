@@ -17,6 +17,11 @@ import 'aos/dist/aos.css';
 
 import Auth from './components/templates/auth/index';
 import Dashboard from './components/templates/dashboard/index';
+import IssuedBooks from './components/templates/issuedBook/index';
+import Visitors from './components/templates/visitors/index';
+import ReturnedBook from './components/templates/returnedBook/index';
+import Profile from './components/templates/profile/index';
+import OverduBook from './components/templates/overdueBook/index';
 import Err from './components/templates/err/index';
 
 
@@ -26,6 +31,12 @@ const App = (props) => {
       <Routes>
         <Route path="/" element={<Auth />} ></Route>
         <Route path="/dashboard" element={<Dashboard />} ></Route>
+        <Route path="/profile" element={<Profile />} ></Route>
+        <Route path="/issued-book" element={<IssuedBooks />} ></Route>
+        <Route path="/returned-book" element={<ReturnedBook />} ></Route>
+        <Route path="/visitors" element={<Visitors />} ></Route>
+        <Route path="/overdue-book" element={<OverduBook />} ></Route>
+
 
         <Route path="/err" element={<Err/>} ></Route>
         <Route
