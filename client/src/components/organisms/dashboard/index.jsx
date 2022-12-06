@@ -7,7 +7,9 @@ import * as React from 'react';
 const Dashboard = (props) => {
     return(
         <>
-        Dashboard
+        <div className='dashboard__outer'>
+
+        </div>
         </>
     )
 }

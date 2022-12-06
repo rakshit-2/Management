@@ -57,7 +57,13 @@ app.get('/login-get',(req,res)=>{
 })
 
 
-
+app.get('/profile-get-all',(req,res)=>{
+    var user_id=req.query.user_id;
+    const ele="select * from manage_profile where user_ID=?;";
+    db.query(ele,[user_id],(err,result)=>{
+        res.send(result)
+    })
+})
 
 
 
