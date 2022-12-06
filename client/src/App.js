@@ -15,8 +15,9 @@ import 'aos/dist/aos.css';
 
 //routes call here
 
-import Auth from './components/organisms/auth/index';
-import Err from './components/organisms/err/index';
+import Auth from './components/templates/auth/index';
+import Dashboard from './components/templates/dashboard/index';
+import Err from './components/templates/err/index';
 
 
 const App = (props) => {
@@ -24,7 +25,7 @@ const App = (props) => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Auth />} ></Route>
-
+        <Route path="/dashboard" element={<Dashboard />} ></Route>
 
         <Route path="/err" element={<Err/>} ></Route>
         <Route
