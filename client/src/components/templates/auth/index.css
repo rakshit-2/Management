@@ -1,0 +1,19 @@
+.template__outer{
+    width:100%;
+    height:100vh;
+}
+.template__inner{
+    width:100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.template__inner__nav{
+    width:80px;
+    height:100%;
+}
+.template__inner__main{
+    width:95%;
+    height:100%;
+}
