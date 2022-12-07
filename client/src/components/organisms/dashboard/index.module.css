@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100&display=swap');
+
+
+.dashboard__outer{
+    width:100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: -200px -100px;
+    background-image: url('./../../assets/images/blob2.svg');
+}
+.dashboard__inner{
+    width:94%;
+    height:93%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.dashboard__inner__head{
+    width:100%;
+    height: fit-content;
+    font-weight: 700;
+    font-size: 40px;
+    font-family: 'Barlow', sans-serif;
+}
+.dashboard__inner__display{
+    width:100%;
+    height:fit-content;
+    border:1px solid red
+}
+.dashboard__inner__display__top{
+    width:100%;
+    height:fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border:1px solid black;
+}
+
+
+.dashboard__inner__display__top__right{
+    width:60%;
+    height:fit-content;
+    border:1px solid black;
+}
+
+
+
+.dashboard__inner__display__bottom{
+    width:100%;
+    height:fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

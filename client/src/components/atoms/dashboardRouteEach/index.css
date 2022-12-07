@@ -1,0 +1,61 @@
+.dashboard__inner__display__top__left__each{
+    width:260px;
+    height:5rem;
+    border-radius: 1rem;
+    margin:1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.dashboard__inner__display__top__left__each:hover{
+    transition-duration: 0.5s;
+    transform: scale(0.9);
+    transition-timing-function: ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.dashboardroute__each__inner{
+    width:83%;
+    height:70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.dashboardroute__each__inner__left{
+    width:50px;
+    height:80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.208);
+    border-radius: 10px;
+}
+.dashboardroute__each__inner__right
+{
+    width:140px;
+    height:85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.dashboardroute__each__inner__right__top{
+    width:100%;
+    height:38%;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: 800;
+    font-family: 'Barlow', sans-serif;
+}
+.dashboardroute__each__inner__right__bottom{
+    width:100%;
+    height:65%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight:bolder;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
