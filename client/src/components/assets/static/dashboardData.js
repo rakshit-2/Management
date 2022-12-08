@@ -38,7 +38,7 @@ const dashboardData=
             arrow:faArrowTrendUp,
             colorArrow:"#8116de"
         }
-    ]
+    ],
 }
 
 export default dashboardData;
