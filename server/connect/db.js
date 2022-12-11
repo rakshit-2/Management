@@ -1,8 +1,8 @@
 import mysql from 'mysql';
-import {db_host,db_user,db_pass,db_database,db_port,} from './getENV.js';
+import {db_host,db_user,db_pass,db_database,db_port,db_conn_time} from './getENV.js';
 
 
-export const db=mysql.createConnection({
+export const db=mysql.createPool({
     host:db_host,
     user:db_user,
     password:db_pass,
@@ -12,17 +12,14 @@ export const db=mysql.createConnection({
 export const Connection = (props) =>{
     return new Promise((successful, crash) => 
     {
-        db.connect((err) => 
+        if(db.config.acquireTimeout===parseInt(db_conn_time))
         {
-            if (err) 
-            {
-                crash(err);
-            } 
-            else 
-            {
-                successful();
-            }
-        });
+            successful();
+        }
+        else
+        {
+            crash("connection not created!!");
+        }
     });
 }
 
