@@ -1,9 +1,11 @@
-import DashboardMain from './../../organisms/dashboard';
-import Nav from './../../organisms/nav'
 import * as React from 'react';
+import VisitorsMain from './../../organisms/visitors';
+import Nav from './../../organisms/nav'
 
 
-const Dashboard = (props) => {
+
+
+const Visitors = (props) => {
     return(
         <>
         <div className='template__outer'>
@@ -12,7 +14,7 @@ const Dashboard = (props) => {
                     <Nav/>
                 </div>
                 <div className='template__inner__main'>
-                    <DashboardMain/>
+                    <VisitorsMain/>
                 </div>
             </div>
         </div>
@@ -21,4 +23,4 @@ const Dashboard = (props) => {
 }
 
 
-export default Dashboard;
+export default Visitors;

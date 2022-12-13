@@ -12,7 +12,6 @@ aside {
   width: 50%;
 }
 .left_box {
-  height: 675px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,31 +77,30 @@ aside {
   width: 70%;
   margin: auto;
 }
-input[type="email"],
-input[type="password"] {
-  border: none;
-  border-bottom: 1px solid gray;
-  width: 100%;
-  padding: 10px 0px;
-  margin: 15px 0px;
-}
-.remember {
+/* .remember {
   display: inline-block;
   margin-left: 7px;
   font-size: 13px;
-}
+} */
 .forgot_pass_container {
   width: 100%;
   margin: 5px 0px;
+  font-size: 13px;
+  display: flex;
 }
-.forgot_pass_container span {
-  float: right;
-  text-decoration: none;
-  color: black;
+.forgot_pass_container input {
+  margin: 0;
+  width: 25px;
 }
-.forgot_pass_container span a {
-  color: black;
-  font-size: 14px;
+.remember_box {
+  display: inline-block;
+  margin: 0 10px;
+  width: 50%;
+  width: auto;
+}
+.forgot_password_box {
+  margin-left: 20%;
+  cursor: pointer;
 }
 .login_btn {
   height: 40px;
@@ -114,5 +112,4 @@ input[type="password"] {
   border-radius: 5px;
 }
 .right_box {
-  border-left: 1px solid black;
 }

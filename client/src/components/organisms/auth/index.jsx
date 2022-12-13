@@ -1,9 +1,12 @@
 import "./index.css";
 import * as React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-
-const Auth = (props) => {
+import { InputField as IField } from "../../atoms/InputField";
+import Modal from "../../molecule/Modal";
+const Auth = () => {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <>
       <div className="outer_container">
@@ -24,8 +27,12 @@ const Auth = (props) => {
             <p className="horizontal_line">or</p>
             <main className="inner_container">
               <form>
-                <input type="email" name="email" placeholder="Email" />
-                <input type="password" name="password" placeholder="Password" />
+                <IField type="email" name="email" placeholder="Email" />
+                <IField
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                />
                 <div className="forgot_pass_container">
                   <input
                     type="checkbox"
@@ -33,21 +40,37 @@ const Auth = (props) => {
                     name="remember"
                     value="remember"
                   />
-                  <label className="remember" for="remember">
-                    Remember for 1 week
-                  </label>
-                  <span>
-                    <Link to="/forgotPassword">Forgot Password</Link>
+                  <span className="remember_box">Remember for 1 week</span>
+                  <span
+                    className="forgot_password_box"
+                    onClick={() => {
+                      openModal === false
+                        ? setOpenModal(true)
+                        : setOpenModal(false);
+                    }}
+                  >
+                    <u>Forgot&nbsp;Password</u>
                   </span>
                 </div>
+                <Modal openModal={openModal} setOpenModal={setOpenModal} />
                 <button className="login_btn" type="submit">
                   Log in
                 </button>
+                <Modal />
               </form>
             </main>
           </div>
         </aside>
-        <aside className="right_box"></aside>
+        <aside className="right_box">
+          <lottie-player
+            src="https://assets9.lottiefiles.com/packages/lf20_gjmecwii.json"
+            background="transparent"
+            speed="1"
+            style={{ width: "700px", height: "600px" }}
+            loop
+            autoplay
+          ></lottie-player>
+        </aside>
       </div>
     </>
   );
