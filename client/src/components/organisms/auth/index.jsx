@@ -1,31 +1,31 @@
-import "./index.css";
 import * as React from "react";
-// import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { InputField as IField } from "../../atoms/InputField";
 import Modal from "../../molecule/Modal";
+import styles from "./auth.module.css";
+
 const Auth = () => {
   const [openModal, setOpenModal] = useState(false);
   return (
     <>
-      <div className="outer_container">
-        <aside className="left_box">
-          <div className="credential_container">
-            <div className="heading_container">
+      <div className={styles.outer_container}>
+        <aside className={styles.left_box}>
+          <div className={styles.credential_container}>
+            <div className={styles.heading_container}>
               <h1> Welcome back, Olivia</h1>
               <p>Welcome back! Please enter your details.</p>
             </div>
-            <div className="log_with_google_container">
-              <button type="submit">
-                <div className="google_icon">
+            <div className={styles.log_with_google_container}>
+              <button type={styles.submit}>
+                <div className={styles.google_icon}>
                   <FcGoogle size={"23px"} />
                 </div>
                 <p>Log in With Google</p>
               </button>
             </div>
-            <p className="horizontal_line">or</p>
-            <main className="inner_container">
+            <p className={styles.horizontal_line}>or</p>
+            <main className={styles.inner_container}>
               <form>
                 <IField type="email" name="email" placeholder="Email" />
                 <IField
@@ -33,16 +33,18 @@ const Auth = () => {
                   name="password"
                   placeholder="Password"
                 />
-                <div className="forgot_pass_container">
+                <div className={styles.forgot_pass_container}>
                   <input
                     type="checkbox"
                     id="remember"
                     name="remember"
                     value="remember"
                   />
-                  <span className="remember_box">Remember for 1 week</span>
+                  <span className={styles.remember_box}>
+                    Remember for 1 week
+                  </span>
                   <span
-                    className="forgot_password_box"
+                    className={styles.forgot_password_box}
                     onClick={() => {
                       openModal === false
                         ? setOpenModal(true)
@@ -53,7 +55,7 @@ const Auth = () => {
                   </span>
                 </div>
                 <Modal openModal={openModal} setOpenModal={setOpenModal} />
-                <button className="login_btn" type="submit">
+                <button className={styles.login_btn} type="submit">
                   Log in
                 </button>
                 <Modal />
@@ -61,7 +63,7 @@ const Auth = () => {
             </main>
           </div>
         </aside>
-        <aside className="right_box">
+        <aside className={styles.right_box}>
           <lottie-player
             src="https://assets9.lottiefiles.com/packages/lf20_gjmecwii.json"
             background="transparent"
