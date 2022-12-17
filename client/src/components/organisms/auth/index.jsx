@@ -7,6 +7,15 @@ import styles from "./auth.module.css";
 
 const Auth = () => {
   const [openModal, setOpenModal] = useState(false);
+  const handleLogin = async (e) => {
+    const res = await fetch("http://localhost:5000/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // body: JSON.stringify({email:,pass:});
+    });
+  };
   return (
     <>
       <div className={styles.outer_container}>
@@ -26,7 +35,7 @@ const Auth = () => {
             </div>
             <p className={styles.horizontal_line}>or</p>
             <main className={styles.inner_container}>
-              <form>
+              <form onSubmit={handleLogin}>
                 <IField type="email" name="email" placeholder="Email" />
                 <IField
                   type="password"

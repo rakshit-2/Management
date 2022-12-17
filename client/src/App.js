@@ -21,7 +21,7 @@ const App = (props) => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<ChangePassword />}></Route>
+        <Route path="/" element={<Auth />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/issued-book" element={<IssuedBooks />}></Route>

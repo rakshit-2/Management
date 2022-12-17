@@ -1,76 +1,48 @@
-const express=require('express');
-const app=express();
-const dotenv=require("dotenv");
-const mysql=require("mysql");
-const bodyParser=require('body-parser');
-const cors=require('cors');
+const express = require("express");
+const app = express();
+const dotenv = require("dotenv");
+const mysql = require("mysql");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-
-
-app.use(cors());
-app.use(express.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors()); // allow api to fetch from other ports as well
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 dotenv.config();
 
-const db_host=process.env.HOST;
-const db_user=process.env.USER;
-const db_pass=process.env.PASSWORD;
-const db_database=process.env.DATABASE;
+const db_host = process.env.HOST;
+const db_user = process.env.USER;
+const db_pass = process.env.PASSWORD;
+const db_database = process.env.DATABASE;
 
-const db=mysql.createPool({
-    host:db_host,
-    user:db_user,
-    password:db_pass,
-    database:db_database,
+// const db = mysql.createPool({
+//   host: db_host,
+//   user: db_user,
+//   password: db_pass,
+//   database: db_database,
+// });
+
+// const connectToDb = () => {
+//   const db = mysql.createConnection({
+//     host: db_host,
+//     user: db_user,
+//     password: db_pass,
+//     database: db_database,
+//   });
+//   return db;
+// };
+
+app.get("/", (req, res) => {
+  res.send("hello api..!!");
 });
-
-
-
-
-
-
-
-app.get("/",(req,res)=>{
-    res.send("hello api..!!");
-});
-
-
-
-
-
 
 // login check api
-app.get('/login-get',(req,res)=>{
-    var email=req.query.email;
-    var pass=req.query.pass;
-    const ele="select * from manage_profile where email=? and pass=?;";
-    db.query(ele,[email,pass],(err,result)=>{
-        if(result.length===0)
-        {
-            res.send(false)
-        }
-        else
-        {
-            res.send(true)
-        }
-    })
-})
+app.use("/auth", require("./routes/auth"));
 
-
-app.get('/profile-get-all',(req,res)=>{
-    var user_id=req.query.user_id;
-    const ele="select * from manage_profile where user_ID=?;";
-    db.query(ele,[user_id],(err,result)=>{
-        res.send(result)
-    })
-})
-
-
-
-const port=process.env.PORT || 5000;
-app.listen(port,()=>{
-    console.log(`listning on port ${port}`);
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`listening on http://localhost:${port}`);
 });
 
-
+// module.exports = connectToDb();
 // npm run devStart

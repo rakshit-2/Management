@@ -8,5 +8,17 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "kirti & rakshit",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "expess": "^0.0.1-security",
+    "express": "^4.18.2",
+    "express-validation": "^4.1.0",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20"
+  }
 }
