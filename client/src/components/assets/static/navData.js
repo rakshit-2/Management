@@ -20,22 +20,22 @@ const navData=[
     {
         id:2,
         icon:faIdCardClip,
-        link:"/issues",
+        link:"/visitors",
     },
     {
         id:3,
         icon:faTimeline,
-        link:"/overdue",
+        link:"/overdue-book",
     },
     {
         id:4,
         icon:faCheck,
-        link:"/returned",
+        link:"/returned-book",
     },
     {
         id:5,
         icon:faSave,
-        link:"/returned",
+        link:"/issued-book",
     }
 ]
 

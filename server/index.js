@@ -22,15 +22,15 @@ const db_database = process.env.DATABASE;
 //   database: db_database,
 // });
 
-// const connectToDb = () => {
-//   const db = mysql.createConnection({
-//     host: db_host,
-//     user: db_user,
-//     password: db_pass,
-//     database: db_database,
-//   });
-//   return db;
-// };
+const connectToDb = () => {
+  const db = mysql.createPool({
+    host: db_host,
+    user: db_user,
+    password: db_pass,
+    database: db_database,
+  });
+  return db;
+};
 
 app.get("/", (req, res) => {
   res.send("hello api..!!");
@@ -44,5 +44,5 @@ app.listen(port, () => {
   console.log(`listening on http://localhost:${port}`);
 });
 
-// module.exports = connectToDb();
+module.exports = connectToDb();
 // npm run devStart
