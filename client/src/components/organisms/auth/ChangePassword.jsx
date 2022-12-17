@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import InputField from "../../atoms/InputField";
 import styles from "./auth.module.css";
 
 const ChangePassword = () => {

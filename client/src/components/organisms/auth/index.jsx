@@ -8,7 +8,7 @@ import styles from "./auth.module.css";
 const Auth = () => {
   const [openModal, setOpenModal] = useState(false);
   const handleLogin = async (e) => {
-    const res = await fetch("http://localhost:5000/auth/login", {
+    const res = await fetch(`${process.env.URL}login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

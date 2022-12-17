@@ -15,11 +15,12 @@
     "@uiball/loaders": "^1.2.6",
     "aos": "^2.3.4",
     "axios": "^1.2.0",
-<<<<<<< HEAD
-    "jsonwebtoken": "^8.5.1",
-=======
     "chart.js": "^4.0.1",
->>>>>>> 93b9a8ccdb1d6b5a393ee964b3e610dbbdf0de6d
+    "dotenv": "^16.0.3",
+    "fs": "^0.0.1-security",
+    "lib": "^4.3.3",
+    "os": "^0.1.2",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.0.1",
     "react-dom": "^18.2.0",
