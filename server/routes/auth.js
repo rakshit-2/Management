@@ -1,21 +1,16 @@
-const express = require("express");
-const dotenv = require("dotenv");
-// const db = require("../index");
-const app = express();
-const bcyrpt = require("bcrypt");
-const saltRounds = 10; // the cost factor which calculate a single BCrypt hash
-const mysql = require("mysql");
+import express from "express";
+import db from "../connect/db.js";
+import { Connection } from "../connect/db.js";
+import { JWT_SECRET } from "../connect/getENV.js";
+import bcyrpt from "bcrypt";
+import jwt from "jsonwebtoken";
 const router = express.Router();
-const getusertoken = require("../middleware/getusertoken");
-const { body, validationResult } = require("express-validator");
+import getusertoken from "../middleware/getusertoken.js";
+import { body } from "express-validator";
+import { validationResult } from "express-validator";
 
-var jwt = require("jsonwebtoken");
-dotenv.config();
-var JWT_SECRET = process.env.JWT_SECRET;
-const db_host = process.env.HOST;
-const db_user = process.env.USER;
-const db_pass = process.env.PASSWORD;
-const db_database = process.env.DATABASE;
+const app = express();
+const saltRounds = 10; // the cost factor which calculate a single BCrypt hash
 
 router.post(
   "/login",
@@ -31,34 +26,21 @@ router.post(
 
       // // const encryptedPassword = await bcyrpt.hash(password, saltRounds);
 
-      var db = mysql.createConnection({
-        host: db_host,
-        user: db_user,
-        password: db_pass,
-        database: db_database,
-      });
+      const sql = "select * from manage_profile where email=? and pass=?;";
 
-      db.connect(async (err) => {
-        if (err) return res.status(400).send({ err, success });
-
-        const sql = "select * from manage_profile where email=? and pass=?;";
-
-        // const sql = `select * from manage_profile where email=${req.body.email} and pass=${req.body.pass};`;
-
-        db.query(sql, [req.body.email, req.body.pass], (err, result) => {
-          if (err) {
-            res.status(400).json({ error: err, success });
-          } else {
-            success = true;
-            const payload = {
-              user: {
-                id: result[0].id,
-              },
-            };
-            const authtoken = jwt.sign(payload, JWT_SECRET);
-            res.status(200).json({ result, success, authtoken });
-          }
-        });
+      db.query(sql, [req.body.email, req.body.pass], (err, result) => {
+        if (err) {
+          res.status(400).json({ error: err, success });
+        } else {
+          success = true;
+          const payload = {
+            user: {
+              id: result[0].id,
+            },
+          };
+          const authtoken = jwt.sign(payload, JWT_SECRET);
+          res.status(200).json({ result, success, authtoken });
+        }
       });
     } catch (err) {
       res.status(500).json({ error: err, success });
@@ -70,30 +52,20 @@ router.post(
 router.get("/getuser", getusertoken, (req, res) => {
   let success = false;
   try {
-    var db = mysql.createConnection({
-      host: db_host,
-      user: db_user,
-      password: db_pass,
-      database: db_database,
-    });
-
-    db.connect(async (err) => {
-      if (err) return res.status(400).send({ err, success });
-      var sql = "select * from manage_profile where id=?;";
-      db.query(sql, [req.user.id], (err, result) => {
-        if (err) {
-          res.status(400).send({ err, success });
-        }
-        success = true;
-        res.status(200).send({ result, success });
-      });
+    var sql = "select * from manage_profile where id=?;";
+    db.query(sql, [req.user.id], (err, result) => {
+      if (err) {
+        res.status(400).send({ err, success });
+      }
+      success = true;
+      res.status(200).send({ result, success });
     });
   } catch (err) {
     res.status(500).json({ error: err, success });
   }
 });
 
-module.exports = router;
+export default router;
 
 /*
 should not send credos in body in get request. so user post request.

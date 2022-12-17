@@ -1,5 +1,6 @@
-const jwt = require("jsonwebtoken");
-const JWT_SECRET = process.env.JWT_SECRET;
+import jwt from "jsonwebtoken";
+import { JWT_SECRET } from "../connect/getENV.js";
+
 const getusertoken = (req, res, next) => {
   const token = req.header("auth-token");
   if (!token) {
@@ -14,4 +15,4 @@ const getusertoken = (req, res, next) => {
   }
 };
 
-module.exports = getusertoken;
+export default getusertoken;
